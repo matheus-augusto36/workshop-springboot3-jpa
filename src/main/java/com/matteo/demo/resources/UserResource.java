@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.matteo.demo.entities.User;
 
 @RestController //Mostra que a classe é um controlador
-@RequestMapping(value = "/users") // Indica o nome que irei digitar na url ao fazer a requisição. Ex: "http://localhost:8080/users"
+@RequestMapping(value = "/users") // Indica o nome que irei digitar na url ao fazer a requisição. Ex: "http://localhost:8080/users "
 public class UserResource {
 
 	@GetMapping //indica que este método responde a requisições "GET" dp protocolo HTTP

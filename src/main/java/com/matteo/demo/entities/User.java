@@ -3,9 +3,19 @@ package com.matteo.demo.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import jakarta.persistence.Entity; //É recomendável desenvolver a aplicação baseada na especificação, e não na implementação.
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tb_user")
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	@Id //indica que o "id" é a minha chave primária.
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //Indica que o "id" é autoincrementável.
 	private Long id;
 	private String name;
 	private String email;
