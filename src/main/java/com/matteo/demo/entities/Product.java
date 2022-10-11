@@ -1,7 +1,9 @@
 package com.matteo.demo.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,6 +24,8 @@ public class Product implements Serializable {
 	private String description;
 	private Double price;
 	private String imgUrl;
+	
+	private Set<Category> categories = new HashSet<>();
 	
 	public Product(Long id, String name, String description, Double price, String imgUrl) {
 		super();
@@ -91,6 +95,10 @@ public class Product implements Serializable {
 			return false;
 		Product other = (Product) obj;
 		return Objects.equals(id, other.id);
+	}
+
+	public Set<Category> getCategories() {
+		return categories;
 	}
 	
 	
