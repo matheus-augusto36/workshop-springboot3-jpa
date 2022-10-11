@@ -32,6 +32,10 @@ public class Product implements Serializable {
 		this.imgUrl = imgUrl;
 	}
 
+	public Product() {
+		
+	}
+	
 	public Long getId() {
 		return id;
 	}
