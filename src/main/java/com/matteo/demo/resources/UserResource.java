@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,6 +43,11 @@ public class UserResource {
 		return ResponseEntity.created(uri).body(obj);
 	}
 	
+	@DeleteMapping(value = "/{id}")
+	public ResponseEntity<Void> delete(@PathVariable("id") Long id) {
+		service.delete(id);
+		return ResponseEntity.noContent().build();
+	}
 	
 }
 
@@ -50,7 +56,8 @@ public class UserResource {
 /*
  * ok() -> Retorna a resposta (Se a operação foi concluída com sucesso ou não)
  * body() -> Retorna o "corpo" da resposta.
- * 
+ * ResponseEntity<Void> -> A resposta do método não retornará nada, por isso o tipo que ResponseEntity precisa ser void.
+ * build() -> Build the response entity with no body. 
  */
 //@RestController mostra que a classe é um controlador
 //@RequestMapping(value = "/users") indica o nome que irei digitar na url ao fazer a requisição. Ex: "http://localhost:8080/users "
